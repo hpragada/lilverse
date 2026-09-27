@@ -1,0 +1,366 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-main: #06050B;
+    --bg-secondary: #0E0C16;
+    --card: rgba(18, 17, 28, 0.82);
+    --card-elevated: rgba(27, 25, 42, 0.9);
+    --border: #2E2942;
+    --border-light: rgba(184, 164, 216, 0.25);
+    --text-primary: #F3EEFB;
+    --text-secondary: #B4ACCA;
+    --text-muted: #81789A;
+    --accent: #B8A4D8;
+    --accent-electric: #C084FC;
+    --accent-rose: #F472B6;
+    --accent-soft-violet: #9680C8;
+    --accent-glow: #8B5CF6;
+    --accent-soft: rgba(184, 164, 216, 0.15);
+  }
+
+  body {
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-weight: 300;
+    letter-spacing: -0.01em;
+    background-color: #06050B;
+    background-image: 
+      radial-gradient(at 0% 0%, rgba(139, 92, 246, 0.12) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, rgba(244, 114, 182, 0.12) 0px, transparent 50%),
+      radial-gradient(at 50% 50%, rgba(184, 164, 216, 0.05) 0px, transparent 60%);
+    background-attachment: fixed;
+    color: #F3EEFB;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+}
+
+/* Custom aesthetic scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2E2942;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #463D63;
+}
+
+/* Dreamy Lavender & Rose Glow Utilities */
+.lavender-glow {
+  box-shadow: 0 0 28px -4px rgba(192, 132, 252, 0.35);
+}
+
+.lavender-glow-sm {
+  box-shadow: 0 0 16px -2px rgba(192, 132, 252, 0.28);
+}
+
+.pink-glow {
+  box-shadow: 0 0 28px -4px rgba(244, 114, 182, 0.35);
+}
+
+.lavender-border-glow {
+  border-color: rgba(184, 164, 216, 0.4);
+  box-shadow: 0 0 20px -4px rgba(139, 92, 246, 0.25);
+}
+
+.dreamy-card {
+  background: rgba(18, 17, 28, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(184, 164, 216, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4), 0 0 20px -6px rgba(184, 164, 216, 0.15);
+}
+
+.dreamy-card-hover {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dreamy-card-hover:hover {
+  border-color: rgba(192, 132, 252, 0.5);
+  box-shadow: 0 12px 36px 0 rgba(0, 0, 0, 0.5), 0 0 25px 0 rgba(192, 132, 252, 0.25);
+  transform: translateY(-2px);
+}
+
+.dreamy-gradient-text {
+  background: linear-gradient(135deg, #F3EEFB 0%, #E8D5FF 40%, #F472B6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.dreamy-btn-primary {
+  background: linear-gradient(135deg, #B8A4D8 0%, #C084FC 50%, #F472B6 100%);
+  color: #06050B;
+  font-weight: 500;
+  box-shadow: 0 0 20px rgba(192, 132, 252, 0.35);
+  transition: all 0.25s ease;
+}
+
+.dreamy-btn-primary:hover {
+  box-shadow: 0 0 28px rgba(244, 114, 182, 0.5);
+  transform: translateY(-1px);
+}
+
+/* Shimmer animation for progress bars and highlights */
+@keyframes dreamy-shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.shimmer-progress {
+  background: linear-gradient(90deg, #B8A4D8 0%, #C084FC 35%, #F472B6 70%, #B8A4D8 100%);
+  background-size: 200% 100%;
+  animation: dreamy-shimmer 3.5s ease-in-out infinite;
+}
+
+/* App Entrance & Sparkle Burst Keyframes */
+@keyframes welcome-scale {
+  0% {
+    transform: scale(0.7) translateY(12px);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.06) translateY(-2px);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-welcome-scale {
+  animation: welcome-scale 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes sparkle-burst {
+  0% {
+    transform: scale(0.3) rotate(0deg);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(1.5) rotate(45deg);
+    opacity: 0;
+  }
+}
+
+.animate-sparkle-burst {
+  animation: sparkle-burst 1.4s ease-out forwards;
+}
+
+/* Floating & Drifting Emoji Animations */
+@keyframes float-drift-1 {
+  0%, 100% {
+    transform: translateY(0px) rotate(-5deg) scale(1);
+  }
+  50% {
+    transform: translateY(-14px) rotate(7deg) scale(1.1);
+  }
+}
+
+@keyframes float-drift-2 {
+  0%, 100% {
+    transform: translateY(0px) rotate(6deg) scale(1);
+  }
+  50% {
+    transform: translateY(-18px) rotate(-8deg) scale(1.14);
+  }
+}
+
+.animate-float-drift-1 {
+  animation: float-drift-1 4.5s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-float-drift-2 {
+  animation: float-drift-2 5.8s ease-in-out infinite 0.9s;
+  will-change: transform;
+}
+
+@keyframes float-heart-up {
+  0% {
+    transform: translateY(110%) scale(0.6) rotate(-8deg);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.65;
+  }
+  80% {
+    opacity: 0.65;
+  }
+  100% {
+    transform: translateY(-120%) scale(1.15) rotate(14deg);
+    opacity: 0;
+  }
+}
+
+.animate-float-heart-1 {
+  animation: float-heart-up 7s ease-in-out infinite;
+}
+.animate-float-heart-2 {
+  animation: float-heart-up 9s ease-in-out infinite 1.8s;
+}
+.animate-float-heart-3 {
+  animation: float-heart-up 8s ease-in-out infinite 3.5s;
+}
+.animate-float-heart-4 {
+  animation: float-heart-up 10s ease-in-out infinite 5s;
+}
+.animate-float-heart-5 {
+  animation: float-heart-up 7.5s ease-in-out infinite 2.2s;
+}
+.animate-float-heart-6 {
+  animation: float-heart-up 8.5s ease-in-out infinite 4.2s;
+}
+
+/* Telegram-Style Bouncing Emoji Keyframes */
+@keyframes telegram-bounce-1 {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  20% {
+    transform: translateY(-2px) scale(0.96, 1.05);
+  }
+  40% {
+    transform: translateY(-11px) scale(1.15, 0.88);
+  }
+  60% {
+    transform: translateY(-3px) scale(0.95, 1.06);
+  }
+  75% {
+    transform: translateY(-6px) scale(1.04, 0.97);
+  }
+  90% {
+    transform: translateY(0) scale(0.99, 1.01);
+  }
+}
+
+@keyframes telegram-bounce-2 {
+  0%, 100% {
+    transform: translateY(0) scale(1) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-8px) scale(1.12, 0.9) rotate(-4deg);
+  }
+  50% {
+    transform: translateY(-14px) scale(0.94, 1.1) rotate(4deg);
+  }
+  75% {
+    transform: translateY(-4px) scale(1.05, 0.96) rotate(-1deg);
+  }
+}
+
+@keyframes telegram-flutter {
+  0%, 100% {
+    transform: translateY(0) rotate(-6deg) scale(1);
+  }
+  30% {
+    transform: translateY(-10px) rotate(8deg) scale(1.18);
+  }
+  60% {
+    transform: translateY(-4px) rotate(-3deg) scale(0.95);
+  }
+  85% {
+    transform: translateY(-8px) rotate(5deg) scale(1.08);
+  }
+}
+
+@keyframes telegram-heartbeat {
+  0%, 100% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.24);
+  }
+  35% {
+    transform: scale(1.08);
+  }
+  50% {
+    transform: scale(1.28);
+  }
+  70% {
+    transform: scale(1);
+  }
+}
+
+@keyframes telegram-sparkle {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 0.85;
+  }
+  50% {
+    transform: scale(1.3) rotate(45deg);
+    opacity: 1;
+  }
+}
+
+.telegram-emoji-bounce-1 {
+  animation: telegram-bounce-1 2.8s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
+  display: inline-block;
+  will-change: transform;
+}
+.telegram-emoji-bounce-2 {
+  animation: telegram-bounce-2 3.1s cubic-bezier(0.34, 1.56, 0.64, 1) infinite 0.35s;
+  display: inline-block;
+  will-change: transform;
+}
+.telegram-emoji-bounce-3 {
+  animation: telegram-bounce-1 2.9s cubic-bezier(0.34, 1.56, 0.64, 1) infinite 0.7s;
+  display: inline-block;
+  will-change: transform;
+}
+.telegram-emoji-bounce-4 {
+  animation: telegram-bounce-2 3.3s cubic-bezier(0.34, 1.56, 0.64, 1) infinite 1.05s;
+  display: inline-block;
+  will-change: transform;
+}
+.telegram-emoji-heartbeat {
+  animation: telegram-heartbeat 2.4s ease-in-out infinite;
+  display: inline-block;
+  will-change: transform;
+}
+.telegram-emoji-flutter {
+  animation: telegram-flutter 3.0s ease-in-out infinite 0.5s;
+  display: inline-block;
+  will-change: transform;
+}
+.telegram-emoji-sparkle {
+  animation: telegram-sparkle 2.6s ease-in-out infinite 0.9s;
+  display: inline-block;
+  will-change: transform;
+}
+
+@keyframes micro-burst {
+  0% {
+    transform: scale(0.6) translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.4) translateY(-24px);
+    opacity: 0;
+  }
+}
+
+.animate-micro-burst {
+  animation: micro-burst 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
